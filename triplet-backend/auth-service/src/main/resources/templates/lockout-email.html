@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Security Alert: Account Locked</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; background-color: #f1f5f9;">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 40px 20px;">
+    <tr>
+        <td align="center">
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 500px; width: 100%; background-color: #ffffff; border-radius: 12px; border-top: 5px solid #ef4444; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;">
+
+                <tr>
+                    <td align="center" style="padding: 40px 30px 20px;">
+                        <div style="background-color: #fef2f2; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <span style="font-size: 32px; line-height: 70px; display: block;">🔒</span>
+                        </div>
+                        <h2 style="margin: 0; color: #0f172a; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">Account Temporarily Locked</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 10px 40px 40px; color: #475569; font-size: 15px; line-height: 1.7;">
+                        <p style="margin-top: 0;">Hello <strong th:text="${name}" style="color: #0f172a;">Explorer</strong>,</p>
+
+                        <p>Our security systems have detected <strong>5 consecutive failed login attempts</strong> on your account. To protect your personal data and travel plans, we have automatically locked your account.</p>
+
+                        <p style="margin-bottom: 35px; border-left: 4px solid #cbd5e1; padding-left: 15px; font-style: italic;">
+                            If this wasn't you, someone may be trying to access your account. Please reset your password immediately to secure it.
+                        </p>
+
+                        <div style="text-align: center;">
+                            <a href="http://localhost:5173/forgot-password" style="background-color: #ef4444; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 15px; display: inline-block; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25); transition: background-color 0.3s;">
+                                Reset Password & Unlock
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="background-color: #f8fafc; padding: 20px 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+                        <p style="margin: 0; color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                            &copy; 2026 Triplet Security Team
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

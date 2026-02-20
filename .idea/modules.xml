@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/TripletApp.iml" filepath="$PROJECT_DIR$/.idea/TripletApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gateway/triplet-backend.api-gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gateway/triplet-backend.api-gateway.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service/triplet-backend.auth-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service/triplet-backend.auth-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eureka-server/triplet-backend.eureka-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/eureka-server/triplet-backend.eureka-server.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/trip-service/triplet-backend.trip-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/trip-service/triplet-backend.trip-service.main.iml" />
+    </modules>
+  </component>
+</project>
