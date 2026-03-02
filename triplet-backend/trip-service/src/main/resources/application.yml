@@ -16,7 +16,7 @@ spring:
 gemini:
   api:
     url: https://generativelanguage.googleapis.com
-    key: AIzaSyA9pHJe151JjsmHkR69Sm0NdSUrynddlQk
+    key: AIzaSyBSy-lHXw3lrEGajlTWPdj9_vAsnUHagkE
 
 eureka:
   client:

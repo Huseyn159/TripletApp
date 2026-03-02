@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  # --- 1. DATABASES ---
+  postgres-auth:
+    image: postgres:15-alpine
+    container_name: postgres-auth
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Huseyn007
+      POSTGRES_DB: tripway_auth_db
+    ports:
+      - "5432:5432" # Sənin kompüterinlə eyni portda qalır
+
+  postgres-trip:
+    image: postgres:15-alpine
+    container_name: postgres-trip
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Huseyn007
+      POSTGRES_DB: trip_db
+    ports:
+      - "5433:5432" # Çaqqışma olmasın deyə bunu 5433-ə çıxardıq
+
+  # --- 2. DISCOVERY SERVER ---
+  eureka-server:
+    build: ./eureka-server # Papka adını özünə görə yoxla
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      retries: 5
+
+  # --- 3. MICROSERVICES ---
+  auth-service:
+    build: ./auth-service # Papka adını özünə görə yoxla
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    environment:
+      # YML faylına toxunmadan Docker-in daxili şəbəkə adlarını göndəririk!
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-auth:5432/tripway_auth_db
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      - postgres-auth
+      - eureka-server
+
+  trip-service:
+    build: ./trip-service # Papka adını özünə görə yoxla
+    container_name: trip-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-trip:5432/trip_db
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      - postgres-trip
+      - eureka-server
+
+  # --- 4. API GATEWAY ---
+  api-gateway:
+    build: ./api-gateway # Papka adını özünə görə yoxla
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      - eureka-server
+      - auth-service
+      - trip-service
+
+#  # --- 5. FRONTEND ---
+#  frontend:
+#    build: ./frontend # React papkasının adı
+#    container_name: frontend
+#    ports:
+#      - "5173:5173"
+#    depends_on:
+#      - api-gateway
