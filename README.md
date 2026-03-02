@@ -31,6 +31,14 @@ Triplet is a modern, microservices-based web application that leverages Google G
 
 
 
+
+
+
+
+----------------------------------------------------------------------------
+SCREENSHOTS:
+----------------------------------------------------------------------------
+<img width="866" height="460" alt="Screenshot dashboard" src="https://github.com/user-attachments/assets/a3997e2f-186c-4b6e-a3c3-69e57532c5cf" />
 <img width="545" height="548" alt="journey details - Copy" src="https://github.com/user-attachments/assets/9c02432a-05b2-4180-b5d2-2a9a308035cd" />
 <img width="299" height="473" alt="verify mail - Copy" src="https://github.com/user-attachments/assets/7e70da1e-3f5c-4859-8d6a-19734ae68eb1" />
 <img width="697" height="688" alt="trip - Copy" src="https://github.com/user-attachments/assets/2d972f63-ba3a-4e9a-b8ff-64047b77b534" />
